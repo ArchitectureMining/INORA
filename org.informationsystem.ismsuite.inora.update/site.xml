@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.informationsystem.ismsuite.inora.feature_1.0.0.202107291704.jar" id="org.informationsystem.ismsuite.inora.feature" version="1.0.0.202107291704"/>
+   <category-def name="InteractionOrientedArchitecture" label="Interaction Oriented Architecture"/>
+</site>

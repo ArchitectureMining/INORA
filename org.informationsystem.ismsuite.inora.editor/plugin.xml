@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated InteractionOrientedArchitecture.aird -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.informationsystem.ismsuite.InteractionOrientedArchitecture.presentation.InteractionOrientedArchitectureModelWizardID"
+            name="%_UI_InteractionOrientedArchitectureModelWizard_label"
+            class="org.informationsystem.ismsuite.InteractionOrientedArchitecture.presentation.InteractionOrientedArchitectureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InteractionOrientedArchitectureModelFile.gif">
+         <description>%_UI_InteractionOrientedArchitectureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated InteractionOrientedArchitecture.aird -->
+      <editor
+            id="org.informationsystem.ismsuite.InteractionOrientedArchitecture.presentation.InteractionOrientedArchitectureEditorID"
+            name="%_UI_InteractionOrientedArchitectureEditor_label"
+            icon="icons/full/obj16/InteractionOrientedArchitectureModelFile.gif"
+            extensions="interactionorientedarchitecture"
+            class="org.informationsystem.ismsuite.InteractionOrientedArchitecture.presentation.InteractionOrientedArchitectureEditor"
+            contributorClass="org.informationsystem.ismsuite.InteractionOrientedArchitecture.presentation.InteractionOrientedArchitectureActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

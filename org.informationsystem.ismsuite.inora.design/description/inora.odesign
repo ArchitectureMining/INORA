@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="inora" version="12.0.0.2017041100">
+  <ownedViewpoints name="InteractionOrientedArchitecture">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="InteractionModel" label="Interaction Model" initialisation="true" domainClass="InteractionOrientedArchitecture::InteractionModel" enablePopupBars="true">
+      <metamodel href="http://www.example.org/InteractionOrientedArchitecture#/"/>
+      <validationSet name="Protocol Instance Validation">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValidateInstantiating" level="ERROR" message="aql:'Protocol Instance ' + self.protocol.label + ' has no instantiating function'" targetClass="InteractionOrientedArchitecture::ProtocolInstance">
+          <audits auditExpression="aql:self.participant->select(x|x.Instantiating)->size()==1"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValidateInstantiatingOne" level="ERROR" message="aql:'Protocol Instance ' + self.protocol.label + ' has no participating function(s)'" targetClass="InteractionOrientedArchitecture::ProtocolInstance">
+          <audits auditExpression="aql:self.participant->select(x|x.Instantiating)->size()>=1"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValidateMissingRoles" level="WARNING" message="aql:'Protocol Instance ' + self.protocol.label + ' does not have all roles fulfilled'" targetClass="InteractionOrientedArchitecture::ProtocolInstance">
+          <audits auditExpression="aql:(self.protocol.role-self.participant.role)->size()==0"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValidateDuplicateRoles" level="WARNING" message="aql:'Protocol Instance ' + self.protocol.label + ' does not have all roles fulfilled'" targetClass="InteractionOrientedArchitecture::ProtocolInstance">
+          <audits auditExpression="aql:(self.protocol.role-self.participant.role)->size()==0"/>
+        </ownedRules>
+      </validationSet>
+      <defaultLayer name="Default">
+        <containerMappings name="BaseContainer" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.container" domainClass="InteractionOrientedArchitecture::Container" dropDescriptions="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='MoveContainer'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='MoveFunction']">
+          <subNodeMappings name="Function" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.function" domainClass="InteractionOrientedArchitecture::Function">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:label" labelPosition="node" resizeKind="NSEW" width="5" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="SubContainer" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditLabel']" semanticCandidatesExpression="feature:container" domainClass="InteractionOrientedArchitecture::Container" dropDescriptions="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='MoveContainer'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='MoveFunction']" reusedContainerMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']">
+            <subNodeMappings name="Function" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.function" domainClass="InteractionOrientedArchitecture::Function">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:label" labelPosition="node" resizeKind="NSEW" width="5" height="5">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="feature:label" labelAlignment="LEFT" roundedCorner="true" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="feature:label" labelAlignment="LEFT" roundedCorner="true" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="DefaultSection">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateContainer" label="Container" precondition="aql:container.eClass()=InteractionOrientedArchitecture::InteractionModel or container.function->isEmpty()" containerMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Container" referenceName="container">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create container">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" label="Container" labelExpression="Container" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateContainer']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" valueExpression="aql:instance.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" valueExpression="aql:instance.description">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="MoveContainer" label="Move Container" precondition="aql:newContainer.function->isEmpty()" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="container" valueExpression="var:element"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFunction" label="Function" precondition="aql:container.container->isEmpty()" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Function" referenceName="function">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create function">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" label="Function" labelExpression="Function" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateFunction']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" valueExpression="aql:instance.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" valueExpression="aql:instance.description">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="MoveFunction" label="Move Function" precondition="aql:newContainer.container->isEmpty() and self.eContainer().function->select(x|x.dependency=self)->isEmpty()" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:element"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Protocols" activeByDefault="true">
+        <nodeMappings name="ProtocolInstance" deletionDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DeleteProtocolInstance']" semanticCandidatesExpression="aql:self.eContainer().protocol.protocolinstance" doubleClickDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='OpenProtocolDefinition']" domainClass="InteractionOrientedArchitecture::ProtocolInstance">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="9" showIcon="false" labelExpression="aql:self.protocol.label" sizeComputationExpression="2" labelPosition="node">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Instantiating Relation" deletionDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='Delete%20Instantiating']" doubleClickDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DoubleClickInstantiating']" sourceMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']" targetMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@nodeMappings[name='ProtocolInstance']" targetFinderExpression="aql:self.participant->select(p|p.Instantiating).protocolinstance">
+          <style sizeComputationExpression="2" routingStyle="manhattan" endsCentering="Target">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Participating Relation" deletionDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='Delete%20Participating']" doubleClickDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DoubleClickParticipating']" sourceMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@nodeMappings[name='ProtocolInstance']" targetMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']" targetFinderExpression="aql:self.participant->select(p|not p.Instantiating).function">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="manhattan" endsCentering="Source">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
+        <toolSections name="ProtocolTools" label="Protocol">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateProtocolInstance" label="Protocol Instance" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@nodeMappings[name='ProtocolInstance']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:Let" variableName="createProtocol" valueExpression="aql:false"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::ProtocolInstance" referenceName="protocolinstance" variableName="protocolinstance"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Protocol" referenceName="protocol" variableName="protocol"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create protocol instance">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:Switch">
+                        <cases conditionExpression="aql:not createProtocol">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                            <subModelOperations xsi:type="tool_1:Unset" featureName="protocol" elementExpression="var:protocol"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:createProtocol">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocolinstance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:protocol"/>
+                          </subModelOperations>
+                        </cases>
+                        <default/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </buttons>
+                  <page name="Default Page" label="Protocol Instance" labelExpression="Protocol Instance" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateProtocolInstance']/@initialOperation/@firstModelOperations/@subModelOperations.3/@groups.0 //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateProtocolInstance']/@initialOperation/@firstModelOperations/@subModelOperations.3/@groups.1 //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateProtocolInstance']/@initialOperation/@firstModelOperations/@subModelOperations.3/@groups.2"/>
+                  <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:CheckboxDescription" name="NewProtocol" label="NewProtocol" labelExpression="Create new protocol?" helpExpression="If checked, you can provide details for a new protocol. If unchecked, you may select an existing protocol." valueExpression="var:createProtocol">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:Let" variableName="createProtocol" valueExpression="var:newValue"/>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                  <groups name="ExistingProtocol" label="Existing protocol" labelExpression="Existing protocol" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:SelectDescription" name="SelectProtocol" label="Protocol" labelExpression="Protocol:" isEnabledExpression="aql:not createProtocol" valueExpression="aql:protocolinstance.protocol" candidatesExpression="aql:self.eContainer().protocol" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocolinstance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                  <groups name="New Protocol" label="New protocol" labelExpression="New protocol" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.description">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ListDescription" name="Roles" labelExpression="Roles:" helpExpression="Define the roles in this protocol" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.role" displayExpression="aql:value.label">
+                      <actions labelExpression="Add role">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Role" referenceName="role" variableName="role">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create role">
+                                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                                    <initialOperation/>
+                                  </buttons>
+                                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                                    <initialOperation/>
+                                  </buttons>
+                                  <page name="Default Page" label="Role" labelExpression="Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateProtocolInstance']/@initialOperation/@firstModelOperations/@subModelOperations.3/@groups.2/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                                  <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                                    <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" valueExpression="aql:role.label">
+                                      <initialOperation>
+                                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                          <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                                        </firstModelOperations>
+                                      </initialOperation>
+                                    </controls>
+                                    <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" valueExpression="aql:role.description">
+                                      <initialOperation>
+                                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                          <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                                        </firstModelOperations>
+                                      </initialOperation>
+                                    </controls>
+                                  </groups>
+                                </subModelOperations>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </actions>
+                      <actions labelExpression="Remove role">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:For" expression="var:selection">
+                            <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </actions>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteProtocolInstance" label="Delete Protocol Instance">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:Switch">
+                  <cases conditionExpression="aql:self.protocol.protocolinstance.protocol->size()=1">
+                    <subModelOperations xsi:type="tool_1:Let" variableName="deleteProtocol" valueExpression="aql:false"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Delete Protocol Instance">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="Delete" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:If" conditionExpression="var:deleteProtocol">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.protocol">
+                                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                            <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="DeleteProtocolInstance" label="Delete ProtocolInstance" labelExpression="Delete Protocol" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DeleteProtocolInstance']/@initialOperation/@firstModelOperations/@subModelOperations.0/@cases.0/@subModelOperations.1/@groups.0"/>
+                      <groups name="DeleteProtocolInstance" label="Delete ProtocolInstance">
+                        <controls xsi:type="properties:CheckboxDescription" name="DeleteProtocol" label="Delete Protocol" labelExpression="Delete protocol?" helpExpression="Check this box to delete the associated protocol as well." valueExpression="var:deleteProtocol">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:Let" variableName="deleteProtocol" valueExpression="var:newValue"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </cases>
+                  <default>
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </default>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.participant">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:i">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Instantiating">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.sourceNode.target.participant->select(x|x.protocolinstance=elementView.targetNode.target)->first()">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Participating">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.targetNode.target.participant->select(x|x.protocolinstance=elementView.sourceNode.target)->first()">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DoubleClickInstantiating" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@edgeMappings[name='Instantiating%20Relation']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.sourceNode.target.participant->select(x|x.protocolinstance=elementView.targetNode.target)->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Participant">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Select Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DoubleClickInstantiating']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:CheckboxDescription" name="Instantiating" labelExpression="Instantiating" valueExpression="aql:self.Instantiating">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Role:" valueExpression="aql:self.role" candidatesExpression="aql:self.protocolinstance.protocol->first().role" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DoubleClickParticipating" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@edgeMappings[name='Participating%20Relation']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.targetNode.target.participant->select(x|x.protocolinstance=elementView.sourceNode.target)->first()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Participant">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Select Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='DoubleClickParticipating']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:CheckboxDescription" name="Instantiating" labelExpression="Instantiating" valueExpression="aql:self.Instantiating">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Role:" valueExpression="aql:self.role" candidatesExpression="aql:self.protocolinstance.protocol->first().role" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateInstantiatingRelation" label="Instantiating" precondition="aql:preTarget.participant->select(x|x.Instantiating)->size()==0 and preTarget.participant.function->select(x|x.eContainer()=preSource.eContainer())->size()==0" edgeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@edgeMappings[name='Instantiating%20Relation']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Participant" referenceName="participant" variableName="participant">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="protocolinstance" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="aql:true"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Select role">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Select Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateInstantiatingRelation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
+                    <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Role:" valueExpression="aql:participant.role" candidatesExpression="aql:target.protocol.role" candidateDisplayExpression="aql:candidate.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:participant">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateParticipatingRelation" label="Participating" precondition="aql:preSource.participant.function->select(x|x.eContainer()=preTarget.eContainer())->size()==0" edgeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@edgeMappings[name='Participating%20Relation']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Participant" referenceName="participant" variableName="participant">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="protocolinstance" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="aql:false"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Select role">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Select Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateParticipatingRelation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Role:" valueExpression="aql:participant.role" candidatesExpression="aql:source.protocol.role" candidateDisplayExpression="aql:candidate.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:participant">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateQuickNewProtocol" label="Quick Protocol Instance" precondition="aql:preSource.eContainer()!=preTarget.eContainer()" extraSourceMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']" extraTargetMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.ancestors()->select(x|x.oclIsTypeOf(InteractionOrientedArchitecture::InteractionModel))->first()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::ProtocolInstance" referenceName="protocolinstance" variableName="protocolinstance"/>
+                <subModelOperations xsi:type="tool_1:Let" variableName="createProtocol" valueExpression="aql:false"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="protocolinstance" valueExpression="var:protocolinstance"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Participant" referenceName="participant" variableName="instantiatingParticipant">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="protocolinstance" valueExpression="var:protocolinstance"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="aql:true"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:source"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Participant" referenceName="participant" variableName="participatingParticipant">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="protocolinstance" valueExpression="var:protocolinstance"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Instantiating" valueExpression="aql:false"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:target"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Protocol" referenceName="protocol" variableName="protocol"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create protocol instance">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:Switch">
+                        <cases conditionExpression="aql:not createProtocol">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.ancestors()->select(x|x.oclIsTypeOf(InteractionOrientedArchitecture::InteractionOrientedArchitecture))">
+                            <subModelOperations xsi:type="tool_1:Unset" featureName="protocol" elementExpression="var:protocol"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:createProtocol">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocolinstance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:protocol"/>
+                          </subModelOperations>
+                        </cases>
+                        <default/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </buttons>
+                  <page name="Default Page" label="Protocol Instance" labelExpression="Protocol Instance" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateQuickNewProtocol']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.0 //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateQuickNewProtocol']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.1 //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateQuickNewProtocol']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.2 //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateQuickNewProtocol']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.3"/>
+                  <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:CheckboxDescription" name="NewProtocol" label="NewProtocol" labelExpression="Create new protocol?" helpExpression="If checked, you can provide details for a new protocol. If unchecked, you may select an existing protocol." valueExpression="var:createProtocol">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:Let" variableName="createProtocol" valueExpression="var:newValue">
+                          <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue==true">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocolinstance">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:protocol"/>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                  <groups name="ExistingProtocol" label="Existing protocol" labelExpression="Existing protocol" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:SelectDescription" name="SelectProtocol" label="Protocol" labelExpression="Protocol:" isEnabledExpression="aql:not createProtocol" valueExpression="aql:protocolinstance.protocol" candidatesExpression="aql:self.ancestors()->select(x|x.oclIsTypeOf(InteractionOrientedArchitecture::InteractionOrientedArchitecture)).protocol" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocolinstance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                  <groups name="New Protocol" label="New protocol" labelExpression="New protocol" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.description">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ListDescription" name="Roles" labelExpression="Roles:" helpExpression="Define the roles in this protocol" isEnabledExpression="aql:createProtocol" valueExpression="aql:protocol.role" displayExpression="aql:value.label">
+                      <actions labelExpression="Add role">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:protocol">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Role" referenceName="role" variableName="role">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create role">
+                                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                                    <initialOperation/>
+                                  </buttons>
+                                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                                    <initialOperation/>
+                                  </buttons>
+                                  <page name="Default Page" label="Role" labelExpression="Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@toolSections.0/@ownedTools[name='CreateQuickNewProtocol']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.2/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                                  <groups name="Default Group" label="Main" labelExpression="Main" semanticCandidateExpression="var:self">
+                                    <controls xsi:type="properties:TextDescription" name="Label" label="Label" labelExpression="Label:" valueExpression="aql:role.label">
+                                      <initialOperation>
+                                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                          <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                                        </firstModelOperations>
+                                      </initialOperation>
+                                    </controls>
+                                    <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" valueExpression="aql:role.description">
+                                      <initialOperation>
+                                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                          <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                                        </firstModelOperations>
+                                      </initialOperation>
+                                    </controls>
+                                  </groups>
+                                </subModelOperations>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </actions>
+                      <actions labelExpression="Remove role">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:For" expression="var:selection">
+                            <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </actions>
+                    </controls>
+                  </groups>
+                  <groups name="Role" labelExpression="Role">
+                    <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Instantiating:" valueExpression="aql:instantiatingParticipant.role" candidatesExpression="aql:protocolinstance.protocol.role" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instantiatingParticipant">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:SelectDescription" name="SelectRole" labelExpression="Participating" valueExpression="aql:participatingParticipant.role" candidatesExpression="aql:protocolinstance.protocol.role" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:participatingParticipant">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="OpenProtocolDefinition" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Protocols']/@nodeMappings[name='ProtocolInstance']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.protocol">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Dependencies" activeByDefault="true">
+        <edgeMappings name="Dependency" sourceMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']" targetMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subNodeMappings[name='Function'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@defaultLayer/@containerMappings[name='BaseContainer']/@subContainerMappings[name='SubContainer']/@subNodeMappings[name='Function']" targetFinderExpression="aql:self.dependency">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="DependencyTools" label="Dependency">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateDependency" label="Dependency" precondition="aql:preSource.eContainer()==preTarget.eContainer() and preTarget.dependency!=preSource" edgeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']/@additionalLayers[name='Dependencies']/@edgeMappings[name='Dependency']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="dependency" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BPMNProtocol" label="BPMN Choreography Diagram" domainClass="InteractionOrientedArchitecture::Protocol" enablePopupBars="true">
+      <validationSet name="MessageValidation">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValidateSenderReceiver" level="WARNING" message="The sender and the receiver of a message shouldn't be the same!" targetClass="InteractionOrientedArchitecture::Message">
+          <audits auditExpression="aql:self.sender!=self.receiver"/>
+        </ownedRules>
+      </validationSet>
+      <defaultLayer name="Default">
+        <nodeMappings name="StartEvent" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.eAllContents()" domainClass="InteractionOrientedArchitecture::Start">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:label" workspacePath="/org.informationsystem.ismsuite.inora.design/images/start.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="EndEvent" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.eAllContents()" domainClass="InteractionOrientedArchitecture::End">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:label" workspacePath="/org.informationsystem.ismsuite.inora.design/images/end.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="IntermediateEvent" semanticCandidatesExpression="aql:self.eAllContents()" doubleClickDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='OpenIntermediateEvent']" domainClass="InteractionOrientedArchitecture::Intermediate">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:(self.function->asSet()+self.protocol->asSet())->first().label" workspacePath="/org.informationsystem.ismsuite.inora.design/images/intermediate.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="AndGateway" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.eAllContents()" domainClass="InteractionOrientedArchitecture::AndGateway">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:label" sizeComputationExpression="4" workspacePath="/org.informationsystem.ismsuite.inora.design/images/and-gateway.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="XorGateway" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.eAllContents()" domainClass="InteractionOrientedArchitecture::XorGateway">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:label" sizeComputationExpression="4" workspacePath="/org.informationsystem.ismsuite.inora.design/images/xor-gateway.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="SequenceFlow" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self.eAllContents()" sourceMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='AndGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='XorGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@containerMappings[name='MessageContainer']" targetMapping="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='AndGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='XorGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@containerMappings[name='MessageContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="InteractionOrientedArchitecture::SequenceFlow" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan" centeredSourceMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='AndGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='XorGateway']" centeredTargetMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='AndGateway'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='XorGateway']">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="feature:label">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="MessageContainer" deletionDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.2/@ownedTools[name='DeleteMessage']" semanticCandidatesExpression="aql:self.eAllContents()" domainClass="InteractionOrientedArchitecture::Message" childrenPresentation="List">
+          <subNodeMappings name="Sender" semanticCandidatesExpression="feature:sender" domainClass="InteractionOrientedArchitecture::Role">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:label" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Message" labelDirectEdit="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.4/@ownedTools[name='EditLabel']" semanticCandidatesExpression="aql:self" domainClass="InteractionOrientedArchitecture::Message">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:label" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Receiver" semanticCandidatesExpression="feature:receiver" domainClass="InteractionOrientedArchitecture::Role">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:label" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Events">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateStartEvent" label="Start" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='StartEvent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Start" referenceName="node"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateEndEvent" label="End" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='EndEvent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::End" referenceName="node"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFunctionReference" label="Function" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Intermediate" referenceName="node">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Function Reference">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Function" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateFunctionReference']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Function" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:SelectDescription" name="SelectFunction" labelExpression="Function:" valueExpression="aql:instance.function" candidatesExpression="aql:container.eContainer().eAllContents(InteractionOrientedArchitecture::Function)" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateProtocolReference" label="Protocol" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Intermediate" referenceName="node">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Protocol Reference">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Protocol" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateProtocolReference']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Protocol" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:SelectDescription" name="SelectProtocol" labelExpression="Protocol:" valueExpression="aql:instance.protocol" candidatesExpression="aql:container.eContainer().eAllContents(InteractionOrientedArchitecture::Protocol)" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Gateways">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateAndGateway" label="AND" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='AndGateway']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::AndGateway" referenceName="node"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateXorGateway" label="XOR" nodeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='XorGateway']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::XorGateway" referenceName="node"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Message">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateMessage" label="Message" containerMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@containerMappings[name='MessageContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Message" referenceName="node">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Message">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="New Message" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.2/@ownedTools[name='CreateMessage']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <groups name="Default Group" labelExpression="Sender - Receiver" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:TextDescription" name="Label" labelExpression="Message:" valueExpression="aql:instance.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:ButtonDescription" name="NewRole" labelExpression="New role" buttonLabelExpression="Create a new role">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Role" referenceName="role" variableName="role">
+                              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Role">
+                                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                                  <initialOperation/>
+                                </buttons>
+                                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                                  <initialOperation/>
+                                </buttons>
+                                <page name="Default Page" labelExpression="Role" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@toolSections.2/@ownedTools[name='CreateMessage']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                                <groups name="Default Group" labelExpression="Role" semanticCandidateExpression="var:self">
+                                  <controls xsi:type="properties:TextDescription" name="RoleLabel" labelExpression="Label:" valueExpression="aql:role.label">
+                                    <initialOperation>
+                                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                                        <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                                      </firstModelOperations>
+                                    </initialOperation>
+                                  </controls>
+                                </groups>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:SelectDescription" name="SenderRole" labelExpression="Sender:" valueExpression="aql:instance.sender" candidatesExpression="aql:container.role" candidateDisplayExpression="aql:candidate.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="sender" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:SelectDescription" name="ReceiverRole" labelExpression="Receiver:" valueExpression="aql:instance.receiver" candidatesExpression="aql:container.role" candidateDisplayExpression="aql:candidate.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="receiver" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteMessage">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.incoming+self.outgoing">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Sequence Flow">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateSequenceFlow" label="Sequence Flow" edgeMappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@edgeMappings[name='SequenceFlow']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::SequenceFlow" referenceName="sequenceflow">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="OpenIntermediateEvent" mappings="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']/@defaultLayer/@nodeMappings[name='IntermediateEvent']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.function">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.ancestors(InteractionOrientedArchitecture::InteractionOrientedArchitecture).interactionmodel">
+                    <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='InteractionModel']"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.protocol">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.protocol">
+                    <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='InteractionOrientedArchitecture']/@ownedRepresentations[name='BPMNProtocol']"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.informationsystem.ismsuite.inora.design.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="Main" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4"/>
+      <groups name="Named element" labelExpression="Named" domainClass="InteractionOrientedArchitecture::NamedElement" semanticCandidateExpression="aql:self">
+        <controls xsi:type="properties:TextDescription" name="Label" labelExpression="Label:" valueExpression="aql:self.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="Description" labelExpression="Description:" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ProtocolInstance" labelExpression="Protocol" domainClass="InteractionOrientedArchitecture::ProtocolInstance" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="Protocol" labelExpression="Protocol:" valueExpression="aql:self.protocol" candidatesExpression="aql:self.ancestors(InteractionOrientedArchitecture::InteractionOrientedArchitecture).protocol" candidateDisplayExpression="aql:candidate.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Message" labelExpression="Message" domainClass="InteractionOrientedArchitecture::Message" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ButtonDescription" name="NewRole" labelExpression="New role" buttonLabelExpression="Create a new role">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.eContainer()">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOrientedArchitecture::Role" referenceName="role" variableName="role">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Role">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Role" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Role" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="RoleLabel" labelExpression="Label:" valueExpression="aql:role.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:role">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="SenderRole" labelExpression="Sender:" valueExpression="aql:self.sender" candidatesExpression="aql:self.eContainer().role" candidateDisplayExpression="aql:candidate.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="sender" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:SelectDescription" name="ReceiverRole" labelExpression="Receiver:" valueExpression="aql:self.receiver" candidatesExpression="aql:self.eContainer().role" candidateDisplayExpression="aql:candidate.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="receiver" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="IntermediateFunction" labelExpression="Intermediate function" domainClass="InteractionOrientedArchitecture::Intermediate" semanticCandidateExpression="var:self" preconditionExpression="aql:self.function!=null">
+        <controls xsi:type="properties:SelectDescription" name="SelectFunction" labelExpression="Function:" valueExpression="aql:self.function" candidatesExpression="aql:self.ancestors(InteractionOrientedArchitecture::InteractionOrientedArchitecture).eAllContents(InteractionOrientedArchitecture::Function)" candidateDisplayExpression="aql:candidate.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="function" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="IntermediateProtocol" labelExpression="Intermediate protocol" domainClass="InteractionOrientedArchitecture::Intermediate" semanticCandidateExpression="var:self" preconditionExpression="aql:self.protocol!=null">
+        <controls xsi:type="properties:SelectDescription" name="SelectProtocol" labelExpression="Protocol:" valueExpression="aql:self.protocol" candidatesExpression="aql:self.ancestors(InteractionOrientedArchitecture::InteractionOrientedArchitecture).eAllContents(InteractionOrientedArchitecture::Protocol)" candidateDisplayExpression="aql:candidate.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="protocol" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>

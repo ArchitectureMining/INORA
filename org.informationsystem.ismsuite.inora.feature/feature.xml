@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.informationsystem.ismsuite.inora.feature"
+      label="Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+   		Tool for Interaction Oriented Architecture.
+   		
+   		Created by Mitchell Klijs as part of his Master Thesis.
+   </description>
+   
+   <plugin
+         id="org.informationsystem.ismsuite.inora.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.informationsystem.ismsuite.inora.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.informationsystem.ismsuite.inora.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.informationsystem.ismsuite.inora"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

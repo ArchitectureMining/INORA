@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InteractionOrientedArchitecture:InteractionOrientedArchitecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:InteractionOrientedArchitecture="http://www.example.org/InteractionOrientedArchitecture">
+  <protocol label="A" protocolinstance="//@interactionmodel/@protocolinstance.0">
+    <role label="a" participant="//@interactionmodel/@participant.0"/>
+    <role label="b" participant="//@interactionmodel/@participant.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:Start" outgoing="//@protocol.0/@sequenceflow.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="request session" outgoing="//@protocol.0/@sequenceflow.1 //@protocol.0/@sequenceflow.3" incoming="//@protocol.0/@sequenceflow.0" sender="//@protocol.0/@role.0" receiver="//@protocol.0/@role.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:Intermediate" outgoing="//@protocol.0/@sequenceflow.4" incoming="//@protocol.0/@sequenceflow.3" function="//@interactionmodel/@container.2/@container.0/@function.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.0/@sequenceflow.5 //@protocol.0/@sequenceflow.6" incoming="//@protocol.0/@sequenceflow.4"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.0/@sequenceflow.9" incoming="//@protocol.0/@sequenceflow.7 //@protocol.0/@sequenceflow.8"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="session token" outgoing="//@protocol.0/@sequenceflow.8" incoming="//@protocol.0/@sequenceflow.5" sender="//@protocol.0/@role.1" receiver="//@protocol.0/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="failure message" outgoing="//@protocol.0/@sequenceflow.7" incoming="//@protocol.0/@sequenceflow.6" sender="//@protocol.0/@role.1" receiver="//@protocol.0/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:End" incoming="//@protocol.0/@sequenceflow.9"/>
+    <sequenceflow from="//@protocol.0/@node.0" to="//@protocol.0/@node.1"/>
+    <sequenceflow from="//@protocol.0/@node.1"/>
+    <sequenceflow/>
+    <sequenceflow from="//@protocol.0/@node.1" to="//@protocol.0/@node.2"/>
+    <sequenceflow from="//@protocol.0/@node.2" to="//@protocol.0/@node.3"/>
+    <sequenceflow label="request approved" from="//@protocol.0/@node.3" to="//@protocol.0/@node.5"/>
+    <sequenceflow label="request denied" from="//@protocol.0/@node.3" to="//@protocol.0/@node.6"/>
+    <sequenceflow from="//@protocol.0/@node.6" to="//@protocol.0/@node.4"/>
+    <sequenceflow from="//@protocol.0/@node.5" to="//@protocol.0/@node.4"/>
+    <sequenceflow from="//@protocol.0/@node.4" to="//@protocol.0/@node.7"/>
+  </protocol>
+  <protocol label="B" protocolinstance="//@interactionmodel/@protocolinstance.1">
+    <role label="a" participant="//@interactionmodel/@participant.2"/>
+    <role label="b" participant="//@interactionmodel/@participant.3"/>
+    <node xsi:type="InteractionOrientedArchitecture:Start" outgoing="//@protocol.1/@sequenceflow.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="request session" outgoing="//@protocol.1/@sequenceflow.1" incoming="//@protocol.1/@sequenceflow.0" sender="//@protocol.1/@role.0" receiver="//@protocol.1/@role.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:Intermediate" outgoing="//@protocol.1/@sequenceflow.2" incoming="//@protocol.1/@sequenceflow.1" protocol="//@protocol.2"/>
+    <node xsi:type="InteractionOrientedArchitecture:Intermediate" outgoing="//@protocol.1/@sequenceflow.3" incoming="//@protocol.1/@sequenceflow.2" function="//@interactionmodel/@container.1/@container.0/@function.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.1/@sequenceflow.4 //@protocol.1/@sequenceflow.5" incoming="//@protocol.1/@sequenceflow.3"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.1/@sequenceflow.8" incoming="//@protocol.1/@sequenceflow.6 //@protocol.1/@sequenceflow.7"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="session token" outgoing="//@protocol.1/@sequenceflow.7" incoming="//@protocol.1/@sequenceflow.4" sender="//@protocol.1/@role.1" receiver="//@protocol.1/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="failure message" outgoing="//@protocol.1/@sequenceflow.6" incoming="//@protocol.1/@sequenceflow.5" sender="//@protocol.1/@role.1" receiver="//@protocol.1/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:End" incoming="//@protocol.1/@sequenceflow.8"/>
+    <sequenceflow from="//@protocol.1/@node.0" to="//@protocol.1/@node.1"/>
+    <sequenceflow from="//@protocol.1/@node.1" to="//@protocol.1/@node.2"/>
+    <sequenceflow from="//@protocol.1/@node.2" to="//@protocol.1/@node.3"/>
+    <sequenceflow from="//@protocol.1/@node.3" to="//@protocol.1/@node.4"/>
+    <sequenceflow label="request approved" from="//@protocol.1/@node.4" to="//@protocol.1/@node.6"/>
+    <sequenceflow label="request denied" from="//@protocol.1/@node.4" to="//@protocol.1/@node.7"/>
+    <sequenceflow from="//@protocol.1/@node.7" to="//@protocol.1/@node.5"/>
+    <sequenceflow from="//@protocol.1/@node.6" to="//@protocol.1/@node.5"/>
+    <sequenceflow from="//@protocol.1/@node.5" to="//@protocol.1/@node.8"/>
+  </protocol>
+  <protocol label="C" protocolinstance="//@interactionmodel/@protocolinstance.2">
+    <role label="a" participant="//@interactionmodel/@participant.4"/>
+    <role label="b" participant="//@interactionmodel/@participant.5"/>
+    <node xsi:type="InteractionOrientedArchitecture:Start" outgoing="//@protocol.2/@sequenceflow.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:End" incoming="//@protocol.2/@sequenceflow.6"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="request validation" outgoing="//@protocol.2/@sequenceflow.1" incoming="//@protocol.2/@sequenceflow.0" sender="//@protocol.2/@role.0" receiver="//@protocol.2/@role.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.2/@sequenceflow.2 //@protocol.2/@sequenceflow.3" incoming="//@protocol.2/@sequenceflow.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.2/@sequenceflow.6" incoming="//@protocol.2/@sequenceflow.4 //@protocol.2/@sequenceflow.5"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="success message" outgoing="//@protocol.2/@sequenceflow.5" incoming="//@protocol.2/@sequenceflow.2" sender="//@protocol.2/@role.1" receiver="//@protocol.2/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="failure message" outgoing="//@protocol.2/@sequenceflow.4" incoming="//@protocol.2/@sequenceflow.3" sender="//@protocol.2/@role.1" receiver="//@protocol.2/@role.0"/>
+    <sequenceflow from="//@protocol.2/@node.0" to="//@protocol.2/@node.2"/>
+    <sequenceflow from="//@protocol.2/@node.2" to="//@protocol.2/@node.3"/>
+    <sequenceflow label="ATM valid" from="//@protocol.2/@node.3" to="//@protocol.2/@node.5"/>
+    <sequenceflow label="ATM invalid" from="//@protocol.2/@node.3" to="//@protocol.2/@node.6"/>
+    <sequenceflow from="//@protocol.2/@node.6" to="//@protocol.2/@node.4"/>
+    <sequenceflow from="//@protocol.2/@node.5" to="//@protocol.2/@node.4"/>
+    <sequenceflow from="//@protocol.2/@node.4" to="//@protocol.2/@node.1"/>
+  </protocol>
+  <protocol label="D" protocolinstance="//@interactionmodel/@protocolinstance.3">
+    <role label="a" participant="//@interactionmodel/@participant.6"/>
+    <role label="b" participant="//@interactionmodel/@participant.7"/>
+    <role label="sdfsd"/>
+    <node xsi:type="InteractionOrientedArchitecture:Start" outgoing="//@protocol.3/@sequenceflow.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:End" incoming="//@protocol.3/@sequenceflow.6"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="request session" outgoing="//@protocol.3/@sequenceflow.1" incoming="//@protocol.3/@sequenceflow.0" sender="//@protocol.3/@role.0" receiver="//@protocol.3/@role.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.3/@sequenceflow.2 //@protocol.3/@sequenceflow.3" incoming="//@protocol.3/@sequenceflow.1"/>
+    <node xsi:type="InteractionOrientedArchitecture:XorGateway" outgoing="//@protocol.3/@sequenceflow.6" incoming="//@protocol.3/@sequenceflow.4 //@protocol.3/@sequenceflow.5"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="success message" outgoing="//@protocol.3/@sequenceflow.4" incoming="//@protocol.3/@sequenceflow.3" sender="//@protocol.3/@role.1" receiver="//@protocol.3/@role.0"/>
+    <node xsi:type="InteractionOrientedArchitecture:Message" label="failure message" outgoing="//@protocol.3/@sequenceflow.5" incoming="//@protocol.3/@sequenceflow.2" sender="//@protocol.3/@role.1" receiver="//@protocol.3/@role.0"/>
+    <sequenceflow from="//@protocol.3/@node.0" to="//@protocol.3/@node.2"/>
+    <sequenceflow from="//@protocol.3/@node.2" to="//@protocol.3/@node.3"/>
+    <sequenceflow label="request denied" from="//@protocol.3/@node.3" to="//@protocol.3/@node.6"/>
+    <sequenceflow label="request approved" from="//@protocol.3/@node.3" to="//@protocol.3/@node.5"/>
+    <sequenceflow from="//@protocol.3/@node.5" to="//@protocol.3/@node.4"/>
+    <sequenceflow from="//@protocol.3/@node.6" to="//@protocol.3/@node.4"/>
+    <sequenceflow from="//@protocol.3/@node.4" to="//@protocol.3/@node.1"/>
+  </protocol>
+  <interactionmodel>
+    <container label="Bank authority">
+      <container label="Authentication service">
+        <function label="Handle auth request" participant="//@interactionmodel/@participant.7"/>
+      </container>
+    </container>
+    <container label="System">
+      <container label="Authentication service">
+        <function label="Bank Authenticate" participant="//@interactionmodel/@participant.6"/>
+        <function label="Handle ATMauth request" participant="//@interactionmodel/@participant.3 //@interactionmodel/@participant.4" dependency="//@interactionmodel/@container.1/@container.0/@function.0"/>
+      </container>
+      <container label="ATM Validation Service">
+        <function label="Validate ATM" participant="//@interactionmodel/@participant.5"/>
+      </container>
+    </container>
+    <container label="ATM">
+      <container label="Authentication service">
+        <function label="System Authenticate" participant="//@interactionmodel/@participant.2"/>
+        <function label="Handle session request" participant="//@interactionmodel/@participant.1" dependency="//@interactionmodel/@container.2/@container.0/@function.0"/>
+      </container>
+      <container label="User interface service">
+        <function label="Request session" participant="//@interactionmodel/@participant.0"/>
+      </container>
+    </container>
+    <protocolinstance participant="//@interactionmodel/@participant.0 //@interactionmodel/@participant.1" protocol="//@protocol.0"/>
+    <protocolinstance participant="//@interactionmodel/@participant.2 //@interactionmodel/@participant.3" protocol="//@protocol.1"/>
+    <protocolinstance participant="//@interactionmodel/@participant.4 //@interactionmodel/@participant.5" protocol="//@protocol.2"/>
+    <protocolinstance participant="//@interactionmodel/@participant.6 //@interactionmodel/@participant.7" protocol="//@protocol.3"/>
+    <protocolinstance/>
+    <protocolinstance/>
+    <protocolinstance/>
+    <protocolinstance/>
+    <participant Instantiating="true" function="//@interactionmodel/@container.2/@container.1/@function.0" protocolinstance="//@interactionmodel/@protocolinstance.0" role="//@protocol.0/@role.0"/>
+    <participant function="//@interactionmodel/@container.2/@container.0/@function.1" protocolinstance="//@interactionmodel/@protocolinstance.0" role="//@protocol.0/@role.1"/>
+    <participant Instantiating="true" function="//@interactionmodel/@container.2/@container.0/@function.0" protocolinstance="//@interactionmodel/@protocolinstance.1" role="//@protocol.1/@role.0"/>
+    <participant function="//@interactionmodel/@container.1/@container.0/@function.1" protocolinstance="//@interactionmodel/@protocolinstance.1" role="//@protocol.1/@role.1"/>
+    <participant Instantiating="true" function="//@interactionmodel/@container.1/@container.0/@function.1" protocolinstance="//@interactionmodel/@protocolinstance.2" role="//@protocol.2/@role.0"/>
+    <participant function="//@interactionmodel/@container.1/@container.1/@function.0" protocolinstance="//@interactionmodel/@protocolinstance.2" role="//@protocol.2/@role.1"/>
+    <participant Instantiating="true" function="//@interactionmodel/@container.1/@container.0/@function.0" protocolinstance="//@interactionmodel/@protocolinstance.3" role="//@protocol.3/@role.0"/>
+    <participant function="//@interactionmodel/@container.0/@container.0/@function.0" protocolinstance="//@interactionmodel/@protocolinstance.3" role="//@protocol.3/@role.1"/>
+  </interactionmodel>
+</InteractionOrientedArchitecture:InteractionOrientedArchitecture>
